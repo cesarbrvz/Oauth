@@ -1,0 +1,10 @@
+/target
+~*
+*~
+.*.sw*
+*.tar.xz
+*.zip
+/tests/touchdata
+/tests/snapshots/*.new
+
+CHECKSUMS*

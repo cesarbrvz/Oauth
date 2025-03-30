@@ -1,0 +1,74 @@
+[package]
+name = "cargo-generate"
+description = "cargo, make me a project"
+version = "0.23.0"
+authors = ["Ashley Williams <ashley666ashley@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/cargo-generate/cargo-generate"
+edition = "2021"
+include = ["src/**/*", "LICENSE-*", "*.md"]
+
+[dependencies.git2]
+default-features = false
+features = ["ssh", "https"]
+version = "~0.20"
+
+[dependencies]
+anstyle = "~1.0"
+anyhow = "~1.0"
+auth-git2 = "~0.5"
+clap = { version = "~4.5", features = ["derive", "wrap_help"] }
+console = "~0.15"
+dialoguer = "~0.11"
+env_logger = "~0.11"
+fs-err = "~3.1"
+gix-config = "~0.43"
+heck = "~0.5"
+home = "~0.5"
+ignore = "~0.4"
+indexmap = { version = "~2", features = ["serde"] }
+indicatif = "~0.17"
+liquid = "~0.26"
+liquid-core = "~0.26"
+liquid-derive = "~0.26"
+liquid-lib = "~0.26"
+log = "~0.4"
+names = { version = "~0.14", default-features = false }
+openssl = { version = "~0.10", optional = true }
+paste = "~1.0"
+regex = "~1.11"
+remove_dir_all = "~1.0"
+rhai = "~1.21"
+sanitize-filename = "~0.6"
+semver = { version = "~1.0", features = ["serde"] }
+serde = { version = "~1.0", features = ["derive"] }
+tempfile = "~3.18"
+thiserror = "~2.0"
+time = "~0.3"
+toml = { version = "~0.8", features = ["preserve_order"] }
+walkdir = "~2.5"
+cargo-util-schemas = "~0.7"
+
+[dev-dependencies]
+assert_cmd = "~2.0"
+bstr = "~1.11"
+indoc = "~2.0"
+predicates = "~3.1"
+url = "~2.5"
+
+[features]
+default = ["vendored-libgit2"]
+vendored-libgit2 = ["git2/vendored-libgit2"]
+vendored-openssl = ["openssl/vendored", "git2/vendored-openssl"]
+
+[[bin]]
+path = "src/main.rs"
+name = "cargo-generate"
+
+[profile.release]
+lto = true
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = [
+    'cfg(e2e_tests_with_ssh_key)',
+] }

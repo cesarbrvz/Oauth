@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: |
+  If you use this software, please cite it using these metadata.
+title: "Cargo Watch: a project-watching companion tool for Cargo"
+
+version: "8.5.3"
+date-released: 2024-10-02
+
+repository-code: https://github.com/watchexec/cargo-watch
+license: CC0-1.0
+
+authors:
+- family-names: Saparelli
+  given-names: Félix
+  orcid: https://orcid.org/0000-0002-2010-630X

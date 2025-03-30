@@ -1,0 +1,13 @@
+[v1]
+"cargo-edit 0.13.2 (registry+https://github.com/rust-lang/crates.io-index)" = [
+    "cargo-add.exe",
+    "cargo-rm.exe",
+    "cargo-set-version.exe",
+    "cargo-upgrade.exe",
+]
+"cargo-generate 0.23.0 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-generate.exe"]
+"cargo-watch 8.5.3 (registry+https://github.com/rust-lang/crates.io-index)" = ["cargo-watch.exe"]
+"sqlx-cli 0.8.3 (registry+https://github.com/rust-lang/crates.io-index)" = [
+    "cargo-sqlx.exe",
+    "sqlx.exe",
+]
